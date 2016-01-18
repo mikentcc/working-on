@@ -1,0 +1,26 @@
+#!/usr/bin/expect -f
+
+exp_send_user "Enter UPS name please: "
+exp_stty -echo
+expect_user -re "(.*)\n" {set name $expect_out(1,string)}
+exp_stty echo
+exp_send_user "\n"
+
+spawn telnet $name
+expect "User Name : "
+send "apc\r"
+expect "Password : "
+send "apc\r"
+expect "> "
+send "1\r"
+expect "> "
+send "1\r"
+expect "> "
+send "\033"
+expect "> "
+send "\033"
+expect "> "
+send "4\r"
+
+interact
+
