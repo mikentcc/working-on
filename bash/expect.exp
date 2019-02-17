@@ -1,0 +1,10 @@
+#!/usr/bin/expect
+spawn telnet 192.168.121.5
+expect "Username: "
+send "mike\n"
+expect "Password: "
+send "fundir\n"
+expect "Cat2900#"
+send "show vlan name pfsense\n"
+#send "logout\n"
+interact
