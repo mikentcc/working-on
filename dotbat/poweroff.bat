@@ -1,0 +1,1 @@
+shutdown.exe /s /t 10 /c "Shutdown in 10 seconds"
